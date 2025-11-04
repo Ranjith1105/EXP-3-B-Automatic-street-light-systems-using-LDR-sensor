@@ -12,6 +12,7 @@
   
 ## Circuit Diagram:
 
+<img width="885" height="549" alt="Screenshot 2025-11-04 191052" src="https://github.com/user-attachments/assets/913f3a75-0de3-4a9e-90fe-f65d8ef3dbaa" />
 
 ## Theory :
 
@@ -65,11 +66,38 @@ o	The middle point (between LDR and resistor) connects to the Arduino analog inp
 •	Save the Circuit: Click "Save" to keep your circuit design and code for future use.
 
 ## Code:
+const int LEDPin=13;
+const int LDRPin=A0;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(LEDPin,OUTPUT);
+  pinMode(LDRPin,INPUT);
+}
+void loop()
+{
+  int LDRStatus=analogRead(LDRPin);
+  if(LDRStatus<=500)
+  {
+    digitalWrite(LEDPin,HIGH);
+    Serial.print("Current Light Intensity Value is -");
+    Serial.println(LDRStatus);
+  }
+  else
+  {
+    digitalWrite(LEDPin, LOW);
+    Serial.print("Current Light Intensity Value is -");
+    Serial.println(LDRStatus);
+  }
+}
+
 
 
 
 ## Output:
  
+<img width="831" height="535" alt="Screenshot 2025-11-04 191105" src="https://github.com/user-attachments/assets/3bf221b9-9b90-496b-8b83-592645a367c9" />
 
 
 ## Result:
+Thus measure the LDR Sensor using Photoresistor with Arduino UNO Board/ESP-32 using Tinker CAD has been Verified Successfully.
